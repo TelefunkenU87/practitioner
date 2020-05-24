@@ -1,0 +1,58 @@
+﻿@model List<Employee>
+@*@model EmployeeListViewModel*@
+@{
+    ViewData["Title"] = "Practitioner Home";
+}
+
+<div class="table-responsive">
+@*<table class="table table-striped table-hover table-sm" data-toggle="table" data-pagination="true" data-search="true">*@
+<table class="table table-striped table-hover table-sm" 
+       data-toggle="table" data-search="true" data-search-align="left" data-show-columns="true" 
+       data-pagination="true" data-pagination-v-align="both">
+    <thead class="thead-light">
+        <tr>
+            <th></th>
+            <th data-sortable="true">EmployeeId</th>
+            <th data-sortable="true">Email</th>
+            <th data-sortable="true">Name</th>
+            <th data-sortable="true">Department</th>
+            <th data-sortable="true">Office</th>
+            <th data-sortable="true">Primary Industry</th>
+            <th data-sortable="true">Sector</th>
+            <th data-sortable="true">Mandatory Retirement</th>
+            <th data-sortable="true">Gender</th>
+            <th data-sortable="true">Race</th>
+            <th data-sortable="true">Direct Admit</th>
+            <th data-sortable="true">LastReview</th>
+            <th data-sortable="true">Status</th>
+            <th data-sortable="true">Original Hire Date</th>
+            <th data-sortable="true">Experience Credit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var e in Model@*.PaginatedEmployees()*@)
+{
+<tr>
+    <td><a class="btn" asp-controller="Practitioner" asp-action="Details" asp-route-id="@e.EmployeeId">
+        <i class="fa fa-info-circle"></i>
+        </a></td>
+    <td>@e.EmployeeId</td>
+    <td>@e.Email@@email.org</td>
+    <td>@e.GetFullName()</td>
+    <td>@e.Department</td>
+    <td>@e.Office</td>
+    <td>@e.PrimaryIndustry</td>
+    <td>@e.Sector</td>
+    <td>@e.MandatoryRetirement.ToString("dd-MM-yyyy")</td>
+    <td>@e.Gender</td>
+    <td>@e.Race</td>
+    <td>@e.DirectAdmit</td>
+    <td>@e.LastReview.ToString("dd-MM-yyyy")</td>
+    <td>@e.Status</td>
+    <td>@e.OriginalHireDate.ToString("dd-MM-yyyy")</td>
+    <td>@e.ExperienceCredit</td>
+</tr>
+}
+    </tbody>
+</table>
+</div>
