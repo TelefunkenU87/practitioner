@@ -19,6 +19,35 @@ namespace Practitioner.Models
             _config = config;
             _connString = _config.GetConnectionString("LocalConnection");
         }
+
+        public AccountServed AddAccountServed(AccountServed addAccountServed)
+        {
+            var sql = "INSERT INTO dbo.AccountServed " +
+                      "VALUES(" +
+                      "@EmployeeId, " +
+                      "@Account, " +
+                      "@ClientService, " +
+                      "@Industry, " +
+                      "@Sector, " +
+                      "@StartDate, " +
+                      "@EndDate);";
+
+            using(IDbConnection conn = new SqlConnection(_connString))
+            {
+                var executedRows = conn.Execute(sql, new
+                {
+                    EmployeeId = addAccountServed.EmployeeId,
+                    Account = addAccountServed.Account,
+                    ClientService = addAccountServed.ClientService,
+                    Industry = addAccountServed.Industry,
+                    Sector = addAccountServed.Sector,
+                    StartDate = addAccountServed.StartDate,
+                    EndDate = addAccountServed.EndDate
+                });
+            }
+            return addAccountServed;
+        }
+
         public List<AccountServed> GetAccountServedByEmployeeId(int employeeId)
         {
             var sql = "SELECT * FROM dbo.AccountServed WHERE EmployeeId = @EmployeeId;";

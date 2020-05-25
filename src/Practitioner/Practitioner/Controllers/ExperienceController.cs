@@ -28,7 +28,8 @@ namespace Practitioner.Controllers
             {
                 Employee = employee,
                 AccountsServed = accountsServed,
-                CategoryNav = categoryNav
+                CategoryNav = categoryNav,
+                NewAccountServed = new AccountServed { AccountServedId = 0, EmployeeId = employee.EmployeeId}
             });
         }
 
@@ -50,7 +51,8 @@ namespace Practitioner.Controllers
             }
             else
             {
-                //add
+                _accountServedRepository.AddAccountServed(updatedAccountServed);
+                Id = updatedAccountServed.EmployeeId;
             }
             return RedirectToAction("AccountServed", new { id = Id });
         }
