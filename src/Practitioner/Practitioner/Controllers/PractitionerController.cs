@@ -25,7 +25,8 @@ namespace Practitioner.Controllers
 
         public IActionResult Details(int id)
         {
-            return View();
+            var employee = _employeeRepository.GetEmployeeById(id);
+            return View(employee);
         }
     }
 }

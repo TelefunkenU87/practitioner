@@ -8,5 +8,6 @@ namespace Practitioner.Models
     public interface IEmployeeRepository
     {
         IEnumerable<Employee> GetEmployees();
+        Employee GetEmployeeById(int employeeId);
     }
 }
