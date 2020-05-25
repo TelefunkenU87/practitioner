@@ -1,0 +1,33 @@
+﻿@model AccountServed
+
+    <form asp-controller="Experience" asp-action="AccountServedEdit" method="post">
+        <input type="hidden" asp-for="@Model.AccountServedId" />
+        <input type="hidden" asp-for="@Model.EmployeeId" />
+        <div class="form-group">
+            <label asp-for="@Model.Account"></label>
+            <input asp-for="@Model.Account" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.ClientService"></label>
+            <input asp-for="@Model.ClientService" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Industry"></label>
+            <input asp-for="@Model.Industry" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Sector"></label>
+            <input asp-for="@Model.Sector" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.StartDate"></label>
+            <input asp-for="@Model.StartDate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.EndDate"></label>
+            <input asp-for="@Model.EndDate" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>

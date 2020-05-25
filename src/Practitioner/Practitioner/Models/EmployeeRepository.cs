@@ -12,34 +12,36 @@ namespace Practitioner.Models
 {
     public class EmployeeRepository : IEmployeeRepository
     {
-        private readonly IConfiguration config;
+        private readonly IConfiguration _config;
         private readonly string _connString;
         public EmployeeRepository(IConfiguration config)
         {
-            this.config = config;
-            _connString = config.GetConnectionString("LocalConnection");
+            _config = config;
+            _connString = _config.GetConnectionString("LocalConnection");
         }
 
         public Employee GetEmployeeById(int employeeId)
         {
             var sql = "SELECT * FROM dbo.Employee WHERE EmployeeId = @EmployeeId;";
-            var _employee = new Employee();
+            var employee = new Employee();
+            
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                _employee = conn.QueryFirstOrDefault<Employee>(sql, new { EmployeeId = employeeId });
+                employee = conn.QueryFirstOrDefault<Employee>(sql, new { EmployeeId = employeeId });
             }
-            return _employee;
+            return employee;
         }
 
         public IEnumerable<Employee> GetEmployees()
         {
             var sql = "SELECT * FROM dbo.Employee;";
-            var _employees = new List<Employee>();
+            var employees = new List<Employee>();
+            
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                _employees = conn.Query<Employee>(sql).ToList();
+                employees = conn.Query<Employee>(sql).ToList();
             }
-            return _employees;
+            return employees;
         }
     }
 }

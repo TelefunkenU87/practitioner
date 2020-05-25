@@ -9,7 +9,7 @@
         <a class="nav-link active" href="#">Profile</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Experiences</a>
+        <a class="nav-link" asp-controller="Experience" asp-action="AccountServed" asp-route-id=@Model.EmployeeId>Experiences</a>
     </li>
     <li class="nav-item">
         <a class="nav-link" href="#">Career Interests</a>
@@ -21,7 +21,7 @@
         <a class="nav-link" href="#">Performance</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">Comments</a>
+        <a class="nav-link disabled" href="#">Comments</a>
     </li>
 </ul>
 
