@@ -17,7 +17,8 @@ namespace Practitioner.Models
         public AccountServedRepository(IConfiguration config)
         {
             _config = config;
-            _connString = _config.GetConnectionString("LocalConnection");
+            //_connString = _config.GetConnectionString("LocalConnection");
+            _connString = _config.GetConnectionString("DefaultConnection");
         }
 
         public AccountServed AddAccountServed(AccountServed addAccountServed)
@@ -46,6 +47,17 @@ namespace Practitioner.Models
                 });
             }
             return addAccountServed;
+        }
+
+        public int DeleteAccountServed(int accountServedId)
+        {
+            var sql = "DELETE FROM dbo.AccountServed WHERE AccountServedId = @AccountServedId;";
+            int executedRows = 0;
+            using (IDbConnection conn = new SqlConnection(_connString))
+            {
+                executedRows = conn.Execute(sql, new { AccountServedId = accountServedId });
+            }
+            return executedRows;
         }
 
         public List<AccountServed> GetAccountServedByEmployeeId(int employeeId)

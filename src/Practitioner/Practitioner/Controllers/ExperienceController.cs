@@ -49,10 +49,31 @@ namespace Practitioner.Controllers
                 _accountServedRepository.UpdateAccountServed(updatedAccountServed);
                 Id = updatedAccountServed.EmployeeId;
             }
-            else
+            else if (ModelState.IsValid)
             {
                 _accountServedRepository.AddAccountServed(updatedAccountServed);
                 Id = updatedAccountServed.EmployeeId;
+            }
+            if (Id != 0)
+            {
+                return RedirectToAction("AccountServed", new { id = Id });
+            }
+            else
+            {
+                return View(updatedAccountServed);
+            }
+        }
+
+        public IActionResult AccountServedDelete(int id, int employeeId)
+        {
+            int Id = employeeId;
+            if (id > 0)
+            {
+                _accountServedRepository.DeleteAccountServed(id);
+            }
+            else
+            {
+                return NotFound();
             }
             return RedirectToAction("AccountServed", new { id = Id });
         }

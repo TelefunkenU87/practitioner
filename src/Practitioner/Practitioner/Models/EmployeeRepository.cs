@@ -17,7 +17,8 @@ namespace Practitioner.Models
         public EmployeeRepository(IConfiguration config)
         {
             _config = config;
-            _connString = _config.GetConnectionString("LocalConnection");
+            //_connString = _config.GetConnectionString("LocalConnection");
+            _connString = _config.GetConnectionString("DefaultConnection");
         }
 
         public Employee GetEmployeeById(int employeeId)
