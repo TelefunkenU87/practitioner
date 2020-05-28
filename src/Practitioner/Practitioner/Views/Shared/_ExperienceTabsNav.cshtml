@@ -9,9 +9,9 @@
             <a class="nav-link @Model.PracticeManagementActive" asp-controller="Experience" asp-action="PracticeManagement" asp-route-id=@Model.EmployeeId>Practice Management</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link @Model.BoardCommitteeActive" href="#">Boards and Committees</a>
+            <a class="nav-link @Model.BoardCommitteeActive" asp-controller="Experience" asp-action="BoardsCommittees" asp-route-id=@Model.EmployeeId>Boards and Committees</a>
         </li>
-        <li class="nav-item">
+        @*<li class="nav-item">
             <a class="nav-link @Model.TalentContributionActive" href="#">Talent Contributions</a>
         </li>
         <li class="nav-item">
@@ -19,5 +19,5 @@
         </li>
         <li class="nav-item">
             <a class="nav-link @Model.ExternalEminenceActive" href="#">External Eminence</a>
-        </li>
+        </li>*@
     </ul>

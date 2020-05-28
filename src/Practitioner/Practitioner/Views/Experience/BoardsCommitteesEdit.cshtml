@@ -1,0 +1,32 @@
+﻿@model BoardsCommittees
+
+    <form asp-controller="Experience" asp-action="BoardsCommitteesEdit" method="post" role="form">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <input type="hidden" asp-for="@Model.BoardsCommitteesId" />
+        <input type="hidden" asp-for="@Model.EmployeeId" />
+        <div class="form-group">
+            <label asp-for="@Model.BoardCommittee"></label>
+            <input asp-for="@Model.BoardCommittee" class="form-control" />
+            <span asp-validation-for="BoardCommittee" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Other"></label>
+            <input asp-for="@Model.Other" class="form-control" />
+            <span asp-validation-for="Other" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Role"></label>
+            <input asp-for="@Model.Role" class="form-control" />
+            <span asp-validation-for="Role" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Comments"></label>
+            <input asp-for="@Model.Comments" class="form-control" />
+            <span asp-validation-for="Comments" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>
