@@ -9,6 +9,6 @@ namespace Practitioner.ViewModel
     public class EmployeeDetailViewModel
     {
         public Employee Employee { get; set; }
-
+        public CategoryNavViewModel CategoryNav { get; set; }
     }
 }

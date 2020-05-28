@@ -17,100 +17,86 @@ namespace Practitioner.Models
         public AccountServedRepository(IConfiguration config)
         {
             _config = config;
-            //_connString = _config.GetConnectionString("LocalConnection");
             _connString = _config.GetConnectionString("DefaultConnection");
         }
 
         public AccountServed AddAccountServed(AccountServed addAccountServed)
         {
-            var sql = "INSERT INTO dbo.AccountServed " +
-                      "VALUES(" +
-                      "@EmployeeId, " +
-                      "@Account, " +
-                      "@ClientService, " +
-                      "@Industry, " +
-                      "@Sector, " +
-                      "@StartDate, " +
-                      "@EndDate);";
+            var procedure = "spAddAccountServed";
+            var parameters = new {
+                @EmployeeId = addAccountServed.EmployeeId,
+                @Account = addAccountServed.Account,
+                @ClientService = addAccountServed.ClientService,
+                @Industry = addAccountServed.Industry,
+                @Sector = addAccountServed.Sector,
+                @StartDate = addAccountServed.StartDate,
+                @EndDate = addAccountServed.EndDate
+            };
 
             using(IDbConnection conn = new SqlConnection(_connString))
             {
-                var executedRows = conn.Execute(sql, new
-                {
-                    EmployeeId = addAccountServed.EmployeeId,
-                    Account = addAccountServed.Account,
-                    ClientService = addAccountServed.ClientService,
-                    Industry = addAccountServed.Industry,
-                    Sector = addAccountServed.Sector,
-                    StartDate = addAccountServed.StartDate,
-                    EndDate = addAccountServed.EndDate
-                });
+                var executedRows = conn.Execute(procedure, parameters, commandType: CommandType.StoredProcedure);
             }
             return addAccountServed;
         }
 
         public int DeleteAccountServed(int accountServedId)
         {
-            var sql = "DELETE FROM dbo.AccountServed WHERE AccountServedId = @AccountServedId;";
+            var procedure = "spDeleteAccountServed";
+            var parameters = new { @AccountServedId = accountServedId };
             int executedRows = 0;
+
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                executedRows = conn.Execute(sql, new { AccountServedId = accountServedId });
+                executedRows = conn.Execute(procedure, parameters, commandType: CommandType.StoredProcedure);
             }
             return executedRows;
         }
 
         public List<AccountServed> GetAccountServedByEmployeeId(int employeeId)
         {
-            var sql = "SELECT * FROM dbo.AccountServed WHERE EmployeeId = @EmployeeId;";
+            var procedure = "spGetAccountServedByEmployeeId";
+            var parameter = new { @EmployeeId = employeeId };
             var accountServed = new List<AccountServed>();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                accountServed = conn.Query<AccountServed>(sql, new { EmployeeId = employeeId }).ToList();
+                accountServed = conn.Query<AccountServed>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
             }
             return accountServed;
         }
 
         public AccountServed GetAccountServedById(int accountServedId)
         {
-            var sql = "SELECT * FROM dbo.AccountServed WHERE AccountServedId = @AccountServedId;";
+            var procedure = "spGetAccountServedById";
+            var parameter = new { @AccountServedId = accountServedId };
             var accountServed = new AccountServed();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                accountServed = conn.QueryFirstOrDefault<AccountServed>(sql, new { AccountServedId = accountServedId });
+                accountServed = conn.QueryFirstOrDefault<AccountServed>(procedure, parameter, commandType: CommandType.StoredProcedure);
             }
             return accountServed;
         }
 
         public AccountServed UpdateAccountServed(AccountServed updatedAccountServed)
         {
-            var sql = "UPDATE dbo.AccountServed " +
-                      "SET EmployeeId = @EmployeeId, " +
-                      "Account = @Account, " +
-                      "ClientService = @ClientService, " +
-                      "Industry = @Industry, " +
-                      "Sector = @Sector, " +
-                      "StartDate = @StartDate, " +
-                      "EndDate = @EndDate " +
-                      "WHERE AccountServedId = @AccountServedId";
+            var procedure = "spUpdateAccountServed";
+            var parameters = new {
+                @AccountServedId = updatedAccountServed.AccountServedId,
+                @EmployeeId = updatedAccountServed.EmployeeId,
+                @Account = updatedAccountServed.Account,
+                @ClientService = updatedAccountServed.ClientService,
+                @Industry = updatedAccountServed.Industry,
+                @Sector = updatedAccountServed.Sector,
+                @StartDate = updatedAccountServed.StartDate,
+                @EndDate = updatedAccountServed.EndDate
+            };
 
             using(IDbConnection conn = new SqlConnection(_connString))
             {
-                var executedRows = conn.Execute(sql, new
-                {
-                    EmployeeId = updatedAccountServed.EmployeeId,
-                    Account = updatedAccountServed.Account,
-                    ClientService = updatedAccountServed.ClientService,
-                    Industry = updatedAccountServed.Industry,
-                    Sector = updatedAccountServed.Sector,
-                    StartDate = updatedAccountServed.StartDate,
-                    EndDate = updatedAccountServed.EndDate,
-                    AccountServedId = updatedAccountServed.AccountServedId
-                });
+                conn.Execute(procedure, parameters, commandType: CommandType.StoredProcedure);
             }
-
             return updatedAccountServed;
         }
     }

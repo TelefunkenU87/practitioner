@@ -11,6 +11,7 @@ namespace Practitioner.ViewModel
         public List<AccountServed> AccountsServed { get; set; }
         public Employee Employee { get; set; }
         public CategoryNavViewModel CategoryNav { get; set; }
+        public ExperienceTabNavViewModel ExperienceTabNav { get; set; }
         public AccountServed NewAccountServed { get; set; }
     }
 }

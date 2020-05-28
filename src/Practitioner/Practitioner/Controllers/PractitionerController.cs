@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft;
 using System.Linq.Dynamic;
 using Practitioner.Models;
+using Practitioner.ViewModel;
 
 namespace Practitioner.Controllers
 {
@@ -26,7 +27,14 @@ namespace Practitioner.Controllers
         public IActionResult Details(int id)
         {
             var employee = _employeeRepository.GetEmployeeById(id);
-            return View(employee);
+            var categoryNav = new CategoryNavViewModel { EmployeeId = employee.EmployeeId, ProfileActive = "active" };
+
+            return View(new EmployeeDetailViewModel
+            {
+                Employee = employee,
+                CategoryNav = categoryNav
+            });
+            //return View(employee);
         }
     }
 }

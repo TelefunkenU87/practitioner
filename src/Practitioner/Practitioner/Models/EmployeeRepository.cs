@@ -17,30 +17,30 @@ namespace Practitioner.Models
         public EmployeeRepository(IConfiguration config)
         {
             _config = config;
-            //_connString = _config.GetConnectionString("LocalConnection");
             _connString = _config.GetConnectionString("DefaultConnection");
         }
 
         public Employee GetEmployeeById(int employeeId)
         {
-            var sql = "SELECT * FROM dbo.Employee WHERE EmployeeId = @EmployeeId;";
+            var procedure = "spGetEmployeeById";
+            var parameters = new { @EmployeeId = employeeId};
             var employee = new Employee();
             
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                employee = conn.QueryFirstOrDefault<Employee>(sql, new { EmployeeId = employeeId });
+                employee = conn.QueryFirstOrDefault<Employee>(procedure, parameters, commandType: CommandType.StoredProcedure);
             }
             return employee;
         }
 
         public IEnumerable<Employee> GetEmployees()
         {
-            var sql = "SELECT * FROM dbo.Employee;";
+            var procedure = "spGetEmployees";
             var employees = new List<Employee>();
-            
+
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                employees = conn.Query<Employee>(sql).ToList();
+                employees = conn.Query<Employee>(procedure).ToList();
             }
             return employees;
         }

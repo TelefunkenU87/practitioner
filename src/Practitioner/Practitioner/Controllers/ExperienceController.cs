@@ -23,12 +23,14 @@ namespace Practitioner.Controllers
             var employee = _employeeRepository.GetEmployeeById(id);
             var accountsServed = _accountServedRepository.GetAccountServedByEmployeeId(id);
             var categoryNav = new CategoryNavViewModel{ EmployeeId = employee.EmployeeId, ExperienceActive = "active"};
+            var experienceTabNav = new ExperienceTabNavViewModel { EmployeeId = employee.EmployeeId, AccountsServedActive = "active" };
 
             return View(new AccountServedViewModel
             {
                 Employee = employee,
                 AccountsServed = accountsServed,
                 CategoryNav = categoryNav,
+                ExperienceTabNav = experienceTabNav,
                 NewAccountServed = new AccountServed { AccountServedId = 0, EmployeeId = employee.EmployeeId}
             });
         }

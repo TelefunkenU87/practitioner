@@ -9,7 +9,6 @@ namespace Practitioner.Models
 {
     public class AccountServed
     {
-        [BindNever]
         public int AccountServedId { get; set; }
         public int EmployeeId { get; set; }
 
