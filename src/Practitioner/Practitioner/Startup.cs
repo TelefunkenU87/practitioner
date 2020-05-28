@@ -27,6 +27,7 @@ namespace Practitioner
             services.AddControllersWithViews();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<IAccountServedRepository, AccountServedRepository>();
+            services.AddScoped<IPracticeManagementRepository, PracticeManagementRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

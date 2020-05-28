@@ -6,7 +6,7 @@
             <a class="nav-link @Model.AccountsServedActive" asp-controller="Experience" asp-action="AccountServed" asp-route-id=@Model.EmployeeId>Accounts Served</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link @Model.PracticeManagementActive" href="#">Practice Management</a>
+            <a class="nav-link @Model.PracticeManagementActive" asp-controller="Experience" asp-action="PracticeManagement" asp-route-id=@Model.EmployeeId>Practice Management</a>
         </li>
         <li class="nav-item">
             <a class="nav-link @Model.BoardCommitteeActive" href="#">Boards and Committees</a>

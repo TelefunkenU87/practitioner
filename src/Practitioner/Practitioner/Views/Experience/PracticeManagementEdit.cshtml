@@ -1,0 +1,50 @@
+﻿@model PracticeManagement
+
+    <form asp-controller="Experience" asp-action="PracticeManagementEdit" method="post" role="form">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <input type="hidden" asp-for="@Model.PracticeManagementId" />
+        <input type="hidden" asp-for="@Model.EmployeeId" />
+        <div class="form-group">
+            <label asp-for="@Model.Role"></label>
+            <input asp-for="@Model.Role" class="form-control" />
+            <span asp-validation-for="Role" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Other"></label>
+            <input asp-for="@Model.Other" class="form-control" />
+            <span asp-validation-for="Other" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Office"></label>
+            <input asp-for="@Model.Office" class="form-control" />
+            <span asp-validation-for="Office" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Industry"></label>
+            <input asp-for="@Model.Industry" class="form-control" />
+            <span asp-validation-for="Industry" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Sector"></label>
+            <input asp-for="@Model.Sector" class="form-control" />
+            <span asp-validation-for="Sector" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.StartDate"></label>
+            <input asp-for="@Model.StartDate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.EndDate"></label>
+            <input asp-for="@Model.EndDate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Comments"></label>
+            <input asp-for="@Model.Comments" class="form-control" />
+            <span asp-validation-for="Comments" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>

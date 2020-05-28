@@ -1,0 +1,80 @@
+﻿
+@model List<PracticeManagement>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-sm"
+               data-toggle="table" data-pagination="true">
+            <thead class="thead-light">
+                <tr>
+                    <th data-sortable="true">Role</th>
+                    <th data-sortable="true">Other</th>
+                    <th data-sortable="true">Start Date</th>
+                    <th data-sortable="true">End Date</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var a in Model)
+                {
+                    <tr>
+                        <td>@a.Role</td>
+                        <td>@a.Other</td>
+                        <td>@a.StartDate.ToString("dd-MM-yyyy")</td>
+                        <td>@a.EndDate.ToString("dd-MM-yyyy")</td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#id-@a.PracticeManagementId">
+                                <i class="fa fa-edit"></i>
+                            </button>
+
+                            <div class="modal fade" id="id-@a.PracticeManagementId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <partial name="PracticeManagementEdit" model=@a />
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            @*<button type="button" class="btn btn-primary">Save changes</button>*@
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#del-@a.PracticeManagementId">
+                                <i class="fa fa-trash-alt"></i>
+                            </button>
+
+                            <div class="modal fade" id="del-@a.PracticeManagementId" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Are you sure you want to delete Practice Management History?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <a class="btn btn-danger" asp-controller="Experience" asp-action="PracticeManagementDelete"
+                                               asp-route-id="@a.PracticeManagementId" asp-route-employeeId="@a.EmployeeId">Delete</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
