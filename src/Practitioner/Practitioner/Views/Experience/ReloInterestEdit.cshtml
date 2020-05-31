@@ -1,0 +1,32 @@
+﻿@model ReloInterest
+
+    <form asp-controller="Experience" asp-action="ReloInterestEdit" method="post" role="form">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <input type="hidden" asp-for="@Model.ReloInterestId" />
+        <input type="hidden" asp-for="@Model.EmployeeId" />
+        <div class="form-group">
+            <label asp-for="@Model.Location"></label>
+            <input asp-for="@Model.Location" class="form-control" />
+            <span asp-validation-for="Location" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.InterestLevel"></label>
+            <input asp-for="@Model.InterestLevel" class="form-control" />
+            <span asp-validation-for="InterestLevel" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Timing"></label>
+            <input asp-for="@Model.Timing" class="form-control" />
+            <span asp-validation-for="Timing" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Comments"></label>
+            <input asp-for="@Model.Comments" class="form-control" />
+            <span asp-validation-for="Comments" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>

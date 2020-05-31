@@ -1,0 +1,20 @@
+﻿
+@model InterestTabNavViewModel
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link @Model.CareerInterestActive" asp-controller="Experience" asp-action="CareerInterest" asp-route-id=@Model.EmployeeId>Career Interests</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @Model.GeneralInterestActive" asp-controller="Experience" asp-action="GeneralInterest" asp-route-id=@Model.EmployeeId>General Areas of Interest</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @Model.ReloInterestActive" asp-controller="Experience" asp-action="ReloInterest" asp-route-id=@Model.EmployeeId>Interest in Relocation</a>
+        </li>
+        @*<li class="nav-item">
+            <a class="nav-link @Model.BoardsCommitteesInterestActive" href="#">Boards and Committees Interest</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link @Model.FirmWideActive" href="#">Firm Wide Career Interest</a>
+        </li>*@
+    </ul>

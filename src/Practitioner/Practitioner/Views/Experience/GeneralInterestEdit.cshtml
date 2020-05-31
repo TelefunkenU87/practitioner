@@ -1,0 +1,22 @@
+﻿@model GeneralInterest
+
+    <form asp-controller="Experience" asp-action="GeneralInterestEdit" method="post" role="form">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <input type="hidden" asp-for="@Model.GeneralInterestId" />
+        <input type="hidden" asp-for="@Model.EmployeeId" />
+        <div class="form-group">
+            <label asp-for="@Model.Department"></label>
+            <input asp-for="@Model.Department" class="form-control" />
+            <span asp-validation-for="Department" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Comments"></label>
+            <input asp-for="@Model.Comments" class="form-control" />
+            <span asp-validation-for="Comments" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>

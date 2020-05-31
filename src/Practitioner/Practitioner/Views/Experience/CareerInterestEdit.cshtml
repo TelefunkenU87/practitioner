@@ -1,0 +1,42 @@
+﻿@model CareerInterest
+
+    <form asp-controller="Experience" asp-action="CareerInterestEdit" method="post" role="form">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <input type="hidden" asp-for="@Model.CareerInterestId" />
+        <input type="hidden" asp-for="@Model.EmployeeId" />
+        <div class="form-group">
+            <label asp-for="@Model.Role"></label>
+            <input asp-for="@Model.Role" class="form-control" />
+            <span asp-validation-for="Role" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Other"></label>
+            <input asp-for="@Model.Other" class="form-control" />
+            <span asp-validation-for="Other" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Office"></label>
+            <input asp-for="@Model.Office" class="form-control" />
+            <span asp-validation-for="Office" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Industry"></label>
+            <input asp-for="@Model.Industry" class="form-control" />
+            <span asp-validation-for="Industry" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Sector"></label>
+            <input asp-for="@Model.Sector" class="form-control" />
+            <span asp-validation-for="Sector" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model.Comment"></label>
+            <input asp-for="@Model.Comment" class="form-control" />
+            <span asp-validation-for="Comment" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>

@@ -9,7 +9,7 @@
             <a class="nav-link @Model.ExperienceActive" asp-controller="Experience" asp-action="AccountServed" asp-route-id=@Model.EmployeeId>Experiences</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Career Interests</a>
+            <a class="nav-link @Model.InterestActive" asp-controller="Experience" asp-action="CareerInterest" asp-route-id="@Model.EmployeeId">Career Interests</a>
         </li>
         <li class="nav-item">
             <a class="nav-link disabled" href="#">Certificates and Competencies</a>

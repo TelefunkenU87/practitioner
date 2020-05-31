@@ -10,5 +10,6 @@ namespace Practitioner.ViewModel
         public int EmployeeId { get; set; }
         public string ProfileActive { get; set; }
         public string ExperienceActive { get; set; }
+        public string InterestActive { get; set; }
     }
 }
