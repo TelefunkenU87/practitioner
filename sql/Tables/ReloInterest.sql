@@ -4,7 +4,7 @@ create table ReloInterest (
 	Location VARCHAR(50),
 	InterestLevel VARCHAR(5),
 	Timing VARCHAR(13),
-	Comments TEXT
+	Comments VARCHAR(MAX)
 CONSTRAINT [PK_ReloInterest] PRIMARY KEY CLUSTERED 
 (
 	[ReloInterestId] ASC

@@ -1,7 +1,7 @@
 create table ExternalEminence (
 	ExternalEminenceId INT IDENTITY(1,1) NOT NULL,
 	EmployeeId INT,
-	Description TEXT
+	Description VARCHAR(MAX)
 CONSTRAINT [PK_ExternalEminence] PRIMARY KEY CLUSTERED 
 (
 	[ExternalEminenceId] ASC

@@ -3,7 +3,7 @@ create table TalentContributions (
 	EmployeeId INT,
 	ContributionType VARCHAR(32),
 	Other VARCHAR(50),
-	Details TEXT,
+	Details VARCHAR(MAX),
 	StartDate DATE,
 	EndDate DATE
 CONSTRAINT [PK_TalentContributions] PRIMARY KEY CLUSTERED 

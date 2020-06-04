@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Practitioner.Models;
+using Newtonsoft;
 
 namespace Practitioner
 {
@@ -32,6 +33,7 @@ namespace Practitioner
             services.AddScoped<ICareerInterestRepository, CareerInterestRepository>();
             services.AddScoped<IGeneralInterestRepository, GeneralInterestRepository>();
             services.AddScoped<IReloInterestRepository, ReloInterestRepository>();
+            services.AddScoped<IReportCriteriaRepository, ReportCriteriaRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
