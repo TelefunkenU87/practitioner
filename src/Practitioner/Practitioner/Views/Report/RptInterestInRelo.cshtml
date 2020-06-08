@@ -1,0 +1,41 @@
+﻿
+@model List<RptInterestInRelo>
+
+<h1>Hello World!</h1>
+
+<a href="@ViewBag.DownloadUrl">Download</a>
+
+<div class="row">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-sm"
+             data-toggle="table" data-pagination="true">
+            <thead class="thead-light">
+                <tr>
+                    <th data-sortable="true">Employee Id</th>
+                    <th data-sortable="true">Email</th>
+                    <th data-sortable="true">Name</th>
+                    <th data-sortable="true">Department</th>
+                    <th data-sortable="true">Location</th>
+                    <th data-sortable="true">Interest Level</th>
+                    <th data-sortable="true">Timing</th>
+                    <th data-sortable="true">Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.EmployeeId</td>
+                        <td>@item.Email@@company.org</td>
+                        <td>@item.LastName, @item.FirstName</td>
+                        <td>@item.Department</td>
+                        <td>@item.Location</td>
+                        <td>@item.InterestLevel</td>
+                        <td>@item.Timing</td>
+                        <td>@item.Comments</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

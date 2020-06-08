@@ -65,7 +65,7 @@
 </div>
 <hr />
 <div class="row">
-    <form asp-controller="Report" asp-action="PrintCriteria" method="post" role="form">
+    <form asp-controller="Report" asp-action="PrintReport" method="post" role="form">
 
         <select asp-for="@Model.Report" asp-items="@Model.Reports"></select>
         <button type="submit" class="btn btn-primary">Print Report</button>
