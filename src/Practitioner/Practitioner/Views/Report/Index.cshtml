@@ -37,6 +37,13 @@
         </div>
     </div>
     <div class="col-4">
+
+        <div class="form-group">
+            <label asp-for="@Model.Category"></label>
+            <select asp-for="@Model.Category" asp-items="@Model.Category"></select>
+            @*@Html.DropDownList("Category", ViewBag.Category as SelectList)*@
+        </div>
+
         <form asp-controller="Report" asp-action="SendCriteria" method="post" role="form">
 
             <input type="hidden" asp-for="@Model.ReportCriteria.ReportCriteriaId" />
@@ -72,3 +79,5 @@
 
     </form>
 </div>
+
+<script src="~/js/ReportCriteria.js"></script>

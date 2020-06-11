@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Razor.Language;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using OfficeOpenXml;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Practitioner.Controllers
 {
@@ -29,9 +30,16 @@ namespace Practitioner.Controllers
         public IActionResult Index()
         {
             var reportCriteria = _reportCriteriaRepository.GetReportCriterias();
+            var categoriesList = _reportCriteriaRepository.GetBaseReportCriteriaCategory();
+            var categories = new List<SelectListItem>();
+            foreach(var item in categoriesList)
+            {
+                categories.Add(new SelectListItem(item, item));
+            }
             return View(new ReportCriteriaViewModel
             {
                 ReportCriteria = new ReportCriteria(),
+                Category = categories,
                 StoredCriteria = reportCriteria
             });
             //var reportCriteria = new ReportCriteria();

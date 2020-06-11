@@ -10,6 +10,7 @@ namespace Practitioner.ViewModel
     public class ReportCriteriaViewModel
     {
         public ReportCriteria ReportCriteria { get; set; }
+        public List<SelectListItem> Category { get; set; }
         public List<SelectListItem> Fields { get; } = new List<SelectListItem>
         {
             new SelectListItem { Value = "ReloInterest.Location", Text = "Interest in Relocation - Location" },

@@ -1,4 +1,5 @@
 ﻿using Dapper;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -47,6 +48,19 @@ namespace Practitioner.Models
                 executedRows = conn.Execute(procedure, parameters, commandType: CommandType.StoredProcedure);
             }
             return executedRows;
+        }
+
+        public List<string> GetBaseReportCriteriaCategory()
+        {
+            var procedure = "SELECT DISTINCT Category FROM dbo.BaseReportCriteria;";
+            var categories = new List<string>();
+
+            using (IDbConnection conn = new SqlConnection(_connString))
+            {
+                var results = conn.Query<string>(procedure, commandType: CommandType.Text);
+                categories = (List<string>)results;
+            }
+            return categories;
         }
 
         public ReportCriteria GetReportCriteriaById(int reportCriteriaId)
