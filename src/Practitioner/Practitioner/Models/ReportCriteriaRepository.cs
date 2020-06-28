@@ -57,10 +57,22 @@ namespace Practitioner.Models
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                var results = conn.Query<string>(procedure, commandType: CommandType.Text);
-                categories = (List<string>)results;
+                categories = conn.Query<string>(procedure, commandType: CommandType.Text).ToList();
             }
             return categories;
+        }
+
+        public List<BaseReportCriteriaFields> GetBaseReportCriteriaFields(string category)
+        {
+            var procedure = $"SELECT BaseReportCriteria.BaseReportCriteriaId, BaseReportCriteria.FriendlyField FROM dbo.BaseReportCriteria WHERE BaseReportCriteria.Category = '{category}'";
+            var parameters = "";
+            var baseReportCriteriaFields = new List<BaseReportCriteriaFields>();
+
+            using (IDbConnection conn = new SqlConnection(_connString))
+            {
+                baseReportCriteriaFields = conn.Query<BaseReportCriteriaFields>(procedure, commandType: CommandType.Text).ToList();
+            }
+            return baseReportCriteriaFields;
         }
 
         public ReportCriteria GetReportCriteriaById(int reportCriteriaId)

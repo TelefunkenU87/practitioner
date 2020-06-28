@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Practitioner.Models;
 using System.Text.Json;
@@ -36,14 +37,23 @@ namespace Practitioner.Controllers
             {
                 categories.Add(new SelectListItem(item, item));
             }
+            //var fieldsList = _reportCriteriaRepository.GetBaseReportCriteriaFields(categoriesList[0]);
+            //var fields = new List<SelectListItem>();
+            //foreach(var item in fieldsList)
+            //{
+            //    fields.Add(new SelectListItem(item.FriendlyField, item.Field));
+            //}
+            var fields = new List<SelectListItem>()
+            {
+                new SelectListItem { Text = "Select Category", Value = "0"}
+            };
             return View(new ReportCriteriaViewModel
             {
                 ReportCriteria = new ReportCriteria(),
                 Category = categories,
+                Fields = fields,
                 StoredCriteria = reportCriteria
             });
-            //var reportCriteria = new ReportCriteria();
-            //return View(reportCriteria);
         }
         public IActionResult DeleteCriteria(int id)
         {
@@ -137,22 +147,6 @@ namespace Practitioner.Controllers
                     worksheet.Cells[$"G{i + 2}"].Value = $"{report[i].Timing}";
                     worksheet.Cells[$"H{i + 2}"].Value = $"{report[i].Comments}";
                 }
-
-                //Add values
-                //worksheet.Cells["A2"].Value = 1000;
-                //worksheet.Cells["B2"].Value = "Jon";
-                //worksheet.Cells["C2"].Value = "M";
-                //worksheet.Cells["D2"].Value = 5000;
-
-                //worksheet.Cells["A3"].Value = 1001;
-                //worksheet.Cells["B3"].Value = "Graham";
-                //worksheet.Cells["C3"].Value = "M";
-                //worksheet.Cells["D3"].Value = 10000;
-
-                //worksheet.Cells["A4"].Value = 1002;
-                //worksheet.Cells["B4"].Value = "Jenny";
-                //worksheet.Cells["C4"].Value = "F";
-                //worksheet.Cells["D4"].Value = 5000;
 
                 package.Save(); //Saves the workbook
             }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using OfficeOpenXml.FormulaParsing.Excel.Functions.Text;
 using Practitioner.Models;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,14 @@ namespace Practitioner.ViewModel
     public class ReportCriteriaViewModel
     {
         public ReportCriteria ReportCriteria { get; set; }
-        public List<SelectListItem> Category { get; set; }
-        public List<SelectListItem> Fields { get; } = new List<SelectListItem>
-        {
-            new SelectListItem { Value = "ReloInterest.Location", Text = "Interest in Relocation - Location" },
-            new SelectListItem { Value = "ReloInterest.InterestLevel", Text = "Interest in Relocation - Interest Level" },
-            new SelectListItem { Value = "ReloInterest.Timing", Text = "Interest in Relocation - Timing" }
-        };
+        public IEnumerable<SelectListItem> Category { get; set; }
+        public IEnumerable<SelectListItem> Fields { get; set; }
+        //public List<SelectListItem> Fields { get; } = new List<SelectListItem>
+        //{
+        //    new SelectListItem { Value = "ReloInterest.Location", Text = "Interest in Relocation - Location" },
+        //    new SelectListItem { Value = "ReloInterest.InterestLevel", Text = "Interest in Relocation - Interest Level" },
+        //    new SelectListItem { Value = "ReloInterest.Timing", Text = "Interest in Relocation - Timing" }
+        //};
         public List<SelectListItem> Operators { get; } = new List<SelectListItem>
         {
             new SelectListItem { Value = "=", Text = "="},
