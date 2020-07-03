@@ -50,6 +50,7 @@ namespace Practitioner.Controllers
             return View(new ReportCriteriaViewModel
             {
                 ReportCriteria = new ReportCriteria(),
+                BaseReportCriteriaId = 0,
                 Category = categories,
                 Fields = fields,
                 StoredCriteria = reportCriteria
@@ -79,7 +80,7 @@ namespace Practitioner.Controllers
             }
             else if (ModelState.IsValid)
             {
-                _reportCriteriaRepository.AddReportCriteria(Criteria.ReportCriteria);
+                _reportCriteriaRepository.AddReportCriteria(Criteria.BaseReportCriteriaId, Criteria.ReportCriteria);
                 Id = Criteria.ReportCriteria.ReportCriteriaId;
             }
             //if (Id != 0)

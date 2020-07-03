@@ -11,6 +11,7 @@ namespace Practitioner.ViewModel
     public class ReportCriteriaViewModel
     {
         public ReportCriteria ReportCriteria { get; set; }
+        public int BaseReportCriteriaId { get; set; }
         public IEnumerable<SelectListItem> Category { get; set; }
         public IEnumerable<SelectListItem> Fields { get; set; }
         //public List<SelectListItem> Fields { get; } = new List<SelectListItem>

@@ -20,12 +20,13 @@ namespace Practitioner.Models
             _connString = _config.GetConnectionString("DefaultConnection");
         }
 
-        public ReportCriteria AddReportCriteria(ReportCriteria addReportCriteria)
+        public ReportCriteria AddReportCriteria(int BaseReportCriteriaId, ReportCriteria addReportCriteria)
         {
             var procedure = "spAddReportCriteria";
             var parameters = new
             {
-                @Field = addReportCriteria.Field,
+                //@Field = addReportCriteria.Field,
+                @Id = BaseReportCriteriaId,
                 @Operator = addReportCriteria.Operator,
                 @FriendlyWhere = addReportCriteria.FriendlyWhere
             };

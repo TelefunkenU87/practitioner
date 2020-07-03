@@ -8,7 +8,7 @@ namespace Practitioner.Models
 {
     public interface IReportCriteriaRepository
     {
-        ReportCriteria AddReportCriteria(ReportCriteria addReportCriteria);
+        ReportCriteria AddReportCriteria(int BaseReportCriteriaId, ReportCriteria addReportCriteria);
         int DeleteReportCriteria(int reportCriteriaId);
         ReportCriteria GetReportCriteriaById(int reportCriteriaId);
         List<ReportCriteria> GetReportCriterias();
