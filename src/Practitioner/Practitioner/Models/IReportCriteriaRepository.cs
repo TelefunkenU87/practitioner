@@ -16,5 +16,6 @@ namespace Practitioner.Models
         List<RptInterestInRelo> GetRptInterestInRelo();
         List<string> GetBaseReportCriteriaCategory();
         List<BaseReportCriteriaFields> GetBaseReportCriteriaFields(string category);
+        List<string> GetBaseReportCriteriaFieldValues(int Id);
     }
 }

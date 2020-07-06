@@ -33,6 +33,7 @@ namespace Practitioner.Controllers
             var reportCriteria = _reportCriteriaRepository.GetReportCriterias();
             var categoriesList = _reportCriteriaRepository.GetBaseReportCriteriaCategory();
             var categories = new List<SelectListItem>();
+            categories.Add(new SelectListItem("Select Category", "Select Category"));
             foreach(var item in categoriesList)
             {
                 categories.Add(new SelectListItem(item, item));

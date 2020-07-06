@@ -44,6 +44,25 @@ namespace Practitioner.Controllers
             return null;
         }
 
+        [HttpGet("search")]
+        public IActionResult GetFieldValues(int Id)
+        {
+            if (Id != 0)
+            {
+                var repoFieldValues = _reportCriteriaRepository.GetBaseReportCriteriaFieldValues(Id);
+                var returnFieldValues = new List<SelectListItem>();
+                foreach (var item in repoFieldValues)
+                {
+                    returnFieldValues.Add(new SelectListItem(item, item));
+                }
+                return Ok(returnFieldValues);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
         //[HttpGet]
         //public ActionResult GetFields()//string category)
         //{

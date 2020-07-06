@@ -10,6 +10,5 @@ namespace Practitioner.Models
     {
         public int BaseReportCriteriaId { get; set; }
         public string FriendlyField { get; set; }
-        //public string Field { get; set; }
     }
 }

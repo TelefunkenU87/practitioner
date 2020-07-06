@@ -76,6 +76,22 @@ namespace Practitioner.Models
             return baseReportCriteriaFields;
         }
 
+        public List<string> GetBaseReportCriteriaFieldValues(int Id)
+        {
+            var procedure = "spGetReportCriteriaFieldValues";
+            var parameters = new
+            {
+                @BaseReportCriteriaId = Id
+            };
+            var results = new List<String>();
+
+            using (IDbConnection conn = new SqlConnection(_connString))
+            {
+                results = conn.Query<String>(procedure, parameters, commandType: CommandType.StoredProcedure).ToList();
+            }
+            return results;
+        }
+
         public ReportCriteria GetReportCriteriaById(int reportCriteriaId)
         {
             var procedure = "spGetReportCriteriaById";
