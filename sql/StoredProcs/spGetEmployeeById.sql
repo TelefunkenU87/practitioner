@@ -13,6 +13,6 @@ BEGIN
 	
 	SET NOCOUNT ON;
 
-	SELECT * FROM dbo.Employee WHERE @EmployeeId = @EmployeeId;
+	SELECT * FROM dbo.Employee WHERE EmployeeId = @EmployeeId;
 END
 GO

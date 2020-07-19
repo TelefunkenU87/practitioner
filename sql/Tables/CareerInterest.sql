@@ -6,7 +6,7 @@ create table CareerInterest (
 	Office VARCHAR(50),
 	Industry VARCHAR(255),
 	Sector VARCHAR(255),
-	Comment TEXT
+	Comment VARCHAR(MAX)
 CONSTRAINT [PK_CareerInterest] PRIMARY KEY CLUSTERED 
 (
 	[CareerInterestId] ASC

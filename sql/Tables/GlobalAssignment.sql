@@ -3,7 +3,7 @@ create table GlobalAssignment (
 	EmployeeId INT,
 	Country VARCHAR(50),
 	Role VARCHAR(50),
-	Comments TEXT,
+	Comments VARCHAR(MAX),
 	StartDate DATE,
 	EndDate DATE
 CONSTRAINT [PK_GlobalAssignment] PRIMARY KEY CLUSTERED 

@@ -8,7 +8,7 @@ create table PracticeManagement (
 	Sector VARCHAR(255),
 	StartDate DATE,
 	EndDate DATE,
-	Comments TEXT
+	Comments VARCHAR(MAX)
 CONSTRAINT [PK_PracticeManagement] PRIMARY KEY CLUSTERED 
 (
 	[PracticeManagementId] ASC

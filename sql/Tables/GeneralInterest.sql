@@ -2,7 +2,7 @@ create table GeneralInterest (
 	GeneralInterestId INT IDENTITY(1,1) NOT NULL,
 	EmployeeId INT,
 	Department VARCHAR(255),
-	Comments TEXT
+	Comments VARCHAR(MAX)
 CONSTRAINT [PK_GeneralInterest] PRIMARY KEY CLUSTERED 
 (
 	[GeneralInterestId] ASC

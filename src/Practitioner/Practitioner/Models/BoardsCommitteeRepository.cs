@@ -83,7 +83,7 @@ namespace Practitioner.Models
             var procedure = "spUpdateBoardCommittees";
             var parameters = new
             {
-                @BoardsCommitteesId = UpdatedBoardsCommittees.BoardsCommitteesId,
+                @BoardCommitteeId = UpdatedBoardsCommittees.BoardsCommitteesId,
                 @EmployeeId = UpdatedBoardsCommittees.EmployeeId,
                 @BoardCommittee = UpdatedBoardsCommittees.BoardCommittee,
                 @Other = UpdatedBoardsCommittees.Other,

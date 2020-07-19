@@ -4,7 +4,7 @@ create table BoardsCommitteesInterest (
 	BoardCommittee VARCHAR(29),
 	Other VARCHAR(50),
 	Role VARCHAR(8),
-	Comments TEXT
+	Comments VARCHAR(MAX)
 CONSTRAINT [PK_BoardsCommitteesInterest] PRIMARY KEY CLUSTERED 
 (
 	[BoardsCommitteesInterestId] ASC
