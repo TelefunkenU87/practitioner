@@ -6,10 +6,10 @@
             <a class="nav-link @Model.ProfileActive" asp-controller="Practitioner" asp-action="Details" asp-route-id=@Model.EmployeeId>Profile</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link @Model.ExperienceActive" asp-controller="Experience" asp-action="AccountServed" asp-route-id=@Model.EmployeeId>Experiences</a>
+            <a class="nav-link @Model.ExperienceActive" asp-controller="AccountServed" asp-action="AccountServed" asp-route-id=@Model.EmployeeId>Experiences</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link @Model.InterestActive" asp-controller="Experience" asp-action="CareerInterest" asp-route-id="@Model.EmployeeId">Career Interests</a>
+            <a class="nav-link @Model.InterestActive" asp-controller="CareerInterest" asp-action="CareerInterest" asp-route-id="@Model.EmployeeId">Career Interests</a>
         </li>
         <li class="nav-item">
             <a class="nav-link disabled" href="#">Certificates and Competencies</a>

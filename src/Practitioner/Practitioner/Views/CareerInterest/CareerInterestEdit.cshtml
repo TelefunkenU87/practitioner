@@ -1,10 +1,10 @@
-﻿@model PracticeManagement
+﻿@model CareerInterest
 
-    <form asp-controller="Experience" asp-action="PracticeManagementEdit" method="post" role="form">
+    <form asp-controller="CareerInterest" asp-action="CareerInterestEdit" method="post" role="form">
 
         <div asp-validation-summary="All" class="text-danger"></div>
 
-        <input type="hidden" asp-for="@Model.PracticeManagementId" />
+        <input type="hidden" asp-for="@Model.CareerInterestId" />
         <input type="hidden" asp-for="@Model.EmployeeId" />
         <div class="form-group">
             <label asp-for="@Model.Role"></label>
@@ -32,17 +32,9 @@
             <span asp-validation-for="Sector" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="@Model.StartDate"></label>
-            <input asp-for="@Model.StartDate" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="@Model.EndDate"></label>
-            <input asp-for="@Model.EndDate" class="form-control" />
-        </div>
-        <div class="form-group">
-            <label asp-for="@Model.Comments"></label>
-            <input asp-for="@Model.Comments" class="form-control" />
-            <span asp-validation-for="Comments" class="text-danger"></span>
+            <label asp-for="@Model.Comment"></label>
+            <input asp-for="@Model.Comment" class="form-control" />
+            <span asp-validation-for="Comment" class="text-danger"></span>
         </div>
 
         <button type="submit" class="btn btn-primary">Save</button>
