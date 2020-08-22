@@ -16,9 +16,13 @@ The app tracked and allowed CRUD operations on a cadre of employee history / pre
 
 
 ## Screenshots
+* Home - Employee List
 ![Home - Employee List](./img/PractitionerHome.png)
+* Employee Profile
 ![Employee Profile](./img/PractitionerProfile.png)
+* Experience Tab w/ edit, delete, creation
 ![Experience Tab w/ edit, delete, creation](./img/PractitionerExperiences.png)
+* Report Criteria Builder
 ![Report Criteria Builder](./img/PractitionerReportCriteria.png)
 
 ## Technologies
