@@ -3,16 +3,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
     public interface IReportCriteriaRepository
     {
-        ReportCriteria AddReportCriteria(int BaseReportCriteriaId, ReportCriteria addReportCriteria);
+        ReportCriteriaDTO AddReportCriteria(int BaseReportCriteriaId, ReportCriteriaDTO addReportCriteria);
         int DeleteReportCriteria(int reportCriteriaId);
-        ReportCriteria GetReportCriteriaById(int reportCriteriaId);
-        List<ReportCriteria> GetReportCriterias();
-        ReportCriteria UpdateReportCriteria(ReportCriteria updatedReportCriteria);
+        ReportCriteriaDTO GetReportCriteriaById(int reportCriteriaId);
+        List<ReportCriteriaDTO> GetReportCriterias();
+        ReportCriteriaDTO UpdateReportCriteria(ReportCriteriaDTO updatedReportCriteria);
         List<RptInterestInRelo> GetRptInterestInRelo();
         List<string> GetBaseReportCriteriaCategory();
         List<BaseReportCriteriaFields> GetBaseReportCriteriaFields(string category);

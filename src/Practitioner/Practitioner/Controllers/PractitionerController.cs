@@ -7,6 +7,7 @@ using Newtonsoft;
 using System.Linq.Dynamic;
 using Practitioner.Models;
 using Practitioner.ViewModel;
+using PractitionerDTO;
 
 namespace Practitioner.Controllers
 {

@@ -1,12 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Practitioner.Models
+namespace PractitionerDTO
 {
-    public class CareerInterest
+    public class CareerInterestDTO
     {
         public int CareerInterestId { get; set; }
         public int EmployeeId { get; set; }

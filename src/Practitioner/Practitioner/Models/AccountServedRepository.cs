@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
@@ -20,7 +21,7 @@ namespace Practitioner.Models
             _connString = _config.GetConnectionString("DefaultConnection");
         }
 
-        public AccountServed AddAccountServed(AccountServed addAccountServed)
+        public AccountServedDTO AddAccountServed(AccountServedDTO addAccountServed)
         {
             var procedure = "spAddAccountServed";
             var parameters = new {
@@ -53,33 +54,33 @@ namespace Practitioner.Models
             return executedRows;
         }
 
-        public List<AccountServed> GetAccountServedByEmployeeId(int employeeId)
+        public List<AccountServedDTO> GetAccountServedByEmployeeId(int employeeId)
         {
             var procedure = "spGetAccountServedByEmployeeId";
             var parameter = new { @EmployeeId = employeeId };
-            var accountServed = new List<AccountServed>();
+            var accountServed = new List<AccountServedDTO>();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                accountServed = conn.Query<AccountServed>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
+                accountServed = conn.Query<AccountServedDTO>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
             }
             return accountServed;
         }
 
-        public AccountServed GetAccountServedById(int accountServedId)
+        public AccountServedDTO GetAccountServedById(int accountServedId)
         {
             var procedure = "spGetAccountServedById";
             var parameter = new { @AccountServedId = accountServedId };
-            var accountServed = new AccountServed();
+            var accountServed = new AccountServedDTO();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                accountServed = conn.QueryFirstOrDefault<AccountServed>(procedure, parameter, commandType: CommandType.StoredProcedure);
+                accountServed = conn.QueryFirstOrDefault<AccountServedDTO>(procedure, parameter, commandType: CommandType.StoredProcedure);
             }
             return accountServed;
         }
 
-        public AccountServed UpdateAccountServed(AccountServed updatedAccountServed)
+        public AccountServedDTO UpdateAccountServed(AccountServedDTO updatedAccountServed)
         {
             var procedure = "spUpdateAccountServed";
             var parameters = new {

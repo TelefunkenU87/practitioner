@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Practitioner.Models;
 using Practitioner.ViewModel;
+using PractitionerDTO;
 
 namespace Practitioner.Controllers
 {
@@ -32,7 +33,7 @@ namespace Practitioner.Controllers
                 Employee = employee,
                 CategoryNav = categoryNav,
                 ExperienceTabNav = experienceTabNav,
-                NewPracticeManagement = new PracticeManagement { PracticeManagementId = 0, EmployeeId = employee.EmployeeId }
+                NewPracticeManagement = new PracticeManagementDTO { PracticeManagementId = 0, EmployeeId = employee.EmployeeId }
             });
         }
 
@@ -43,7 +44,7 @@ namespace Practitioner.Controllers
         }
 
         [HttpPost]
-        public IActionResult PracticeManagementEdit(PracticeManagement updatedPracticeManagement)
+        public IActionResult PracticeManagementEdit(PracticeManagementDTO updatedPracticeManagement)
         {
             int Id = 0;
             if (updatedPracticeManagement.PracticeManagementId > 0)

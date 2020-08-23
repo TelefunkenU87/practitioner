@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
     public interface IBoardsCommitteesRepository
     {
-        BoardsCommittees AddBoardsCommittees(BoardsCommittees addBoardsCommittees);
+        BoardsCommitteesDTO AddBoardsCommittees(BoardsCommitteesDTO addBoardsCommittees);
         int DeleteBoardsCommittees(int boardsCommitteesId);
-        List<BoardsCommittees> GetBoardsCommitteesByEmployeeId(int employeeId);
-        BoardsCommittees GetBoardsCommitteesById(int boardsCommitteesId);
-        BoardsCommittees UpdateBoardCommittees(BoardsCommittees UpdatedBoardsCommittees);
+        List<BoardsCommitteesDTO> GetBoardsCommitteesByEmployeeId(int employeeId);
+        BoardsCommitteesDTO GetBoardsCommitteesById(int boardsCommitteesId);
+        BoardsCommitteesDTO UpdateBoardCommittees(BoardsCommitteesDTO UpdatedBoardsCommittees);
     }
 }

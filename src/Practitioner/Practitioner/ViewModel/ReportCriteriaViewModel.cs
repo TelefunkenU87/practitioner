@@ -5,12 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.ViewModel
 {
     public class ReportCriteriaViewModel
     {
-        public ReportCriteria ReportCriteria { get; set; }
+        public ReportCriteriaDTO ReportCriteria { get; set; }
         public int BaseReportCriteriaId { get; set; }
         public IEnumerable<SelectListItem> Category { get; set; }
         public IEnumerable<SelectListItem> Fields { get; set; }
@@ -31,6 +32,6 @@ namespace Practitioner.ViewModel
             new SelectListItem { Value = "RptInterestInRelo", Text = "Interest in Relocation" },
             new SelectListItem { Value = "RptInterestInRelo", Text = "Second Option - No Report"}
         };
-        public List<ReportCriteria> StoredCriteria { get; set; }
+        public List<ReportCriteriaDTO> StoredCriteria { get; set; }
     }
 }

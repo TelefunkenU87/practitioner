@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Practitioner.Models;
 using Practitioner.ViewModel;
+using PractitionerDTO;
 
 namespace Practitioner.Controllers
 {
@@ -32,7 +33,7 @@ namespace Practitioner.Controllers
                 Employee = employee,
                 CategoryNav = categoryNav,
                 ExperienceTabNav = experienceTabNav,
-                NewBoardsCommittees = new BoardsCommittees { BoardsCommitteesId = 0, EmployeeId = employee.EmployeeId }
+                NewBoardsCommittees = new BoardsCommitteesDTO { BoardsCommitteesId = 0, EmployeeId = employee.EmployeeId }
             });
         }
 
@@ -43,7 +44,7 @@ namespace Practitioner.Controllers
         }
 
         [HttpPost]
-        public IActionResult BoardsCommitteesEdit(BoardsCommittees updatedBoardsCommittees)
+        public IActionResult BoardsCommitteesEdit(BoardsCommitteesDTO updatedBoardsCommittees)
         {
             int Id = 0;
             if (updatedBoardsCommittees.BoardsCommitteesId > 0)

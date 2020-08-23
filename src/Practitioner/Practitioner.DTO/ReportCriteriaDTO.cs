@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Practitioner.Models
+namespace PractitionerDTO
 {
-    public class ReportCriteria
+    public class ReportCriteriaDTO
     {
         public int ReportCriteriaId { get; set; }
         public string Field { get; set; }

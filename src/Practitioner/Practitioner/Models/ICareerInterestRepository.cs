@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
     public interface ICareerInterestRepository
     {
-        CareerInterest AddCareerInterest(CareerInterest addCareerInterest);
+        CareerInterestDTO AddCareerInterest(CareerInterestDTO addCareerInterest);
         int DeleteCareerInterest(int careerInterestId);
-        List<CareerInterest> GetCareerInterestByEmployeeId(int employeeId);
-        CareerInterest GetCareerInterestById(int careerInterestId);
-        CareerInterest UpdateCareerInterest(CareerInterest updatedCareerInterest);
+        List<CareerInterestDTO> GetCareerInterestByEmployeeId(int employeeId);
+        CareerInterestDTO GetCareerInterestById(int careerInterestId);
+        CareerInterestDTO UpdateCareerInterest(CareerInterestDTO updatedCareerInterest);
     }
 }

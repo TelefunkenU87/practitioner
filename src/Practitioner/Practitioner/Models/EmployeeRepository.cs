@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
@@ -20,27 +21,27 @@ namespace Practitioner.Models
             _connString = _config.GetConnectionString("DefaultConnection");
         }
 
-        public Employee GetEmployeeById(int employeeId)
+        public EmployeeDTO GetEmployeeById(int employeeId)
         {
             var procedure = "spGetEmployeeById";
             var parameters = new { @EmployeeId = employeeId};
-            var employee = new Employee();
+            var employee = new EmployeeDTO();
             
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                employee = conn.QueryFirstOrDefault<Employee>(procedure, parameters, commandType: CommandType.StoredProcedure);
+                employee = conn.QueryFirstOrDefault<EmployeeDTO>(procedure, parameters, commandType: CommandType.StoredProcedure);
             }
             return employee;
         }
 
-        public IEnumerable<Employee> GetEmployees()
+        public IEnumerable<EmployeeDTO> GetEmployees()
         {
             var procedure = "spGetEmployees";
-            var employees = new List<Employee>();
+            var employees = new List<EmployeeDTO>();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                employees = conn.Query<Employee>(procedure).ToList();
+                employees = conn.Query<EmployeeDTO>(procedure).ToList();
             }
             return employees;
         }
