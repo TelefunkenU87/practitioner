@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -8,8 +7,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using PractitionerDTO;
+using PractitionerDAL.Interfaces;
 
-namespace Practitioner.Models
+namespace PractitionerDAL.Models
 {
     public class CareerInterestRepository : ICareerInterestRepository
     {

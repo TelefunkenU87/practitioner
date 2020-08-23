@@ -8,8 +8,9 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using PractitionerDTO;
+using PractitionerDAL.Interfaces;
 
-namespace Practitioner.Models
+namespace PractitionerDAL.Models
 {
     public class BoardsCommitteeRepository : IBoardsCommitteesRepository
     {

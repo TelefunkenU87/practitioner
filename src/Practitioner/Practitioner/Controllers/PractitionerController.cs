@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft;
 using System.Linq.Dynamic;
-using Practitioner.Models;
 using Practitioner.ViewModel;
+using PractitionerDAL.Interfaces;
 using PractitionerDTO;
 
 namespace Practitioner.Controllers

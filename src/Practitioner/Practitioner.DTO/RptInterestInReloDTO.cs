@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Practitioner.Models
+namespace PractitionerDTO
 {
-    public class RptInterestInRelo
+    public class RptInterestInReloDTO
     {
         public int RptReloInterestId { get; set; }
         public int EmployeeId { get; set; }

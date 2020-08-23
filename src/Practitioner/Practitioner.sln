@@ -6,9 +6,15 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Practitioner", "Practitioner\Practitioner.csproj", "{0C2C77AE-118C-4ACD-AD0F-C68B3A1E5CBA}"
 	ProjectSection(ProjectDependencies) = postProject
 		{AF4D098A-2A40-4FAC-A35A-AAFCFEAB0F6E} = {AF4D098A-2A40-4FAC-A35A-AAFCFEAB0F6E}
+		{511B40DE-B761-444F-9BEE-7499082072E7} = {511B40DE-B761-444F-9BEE-7499082072E7}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practitioner.DTO", "Practitioner.DTO\Practitioner.DTO.csproj", "{AF4D098A-2A40-4FAC-A35A-AAFCFEAB0F6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Practitioner.DTO", "Practitioner.DTO\Practitioner.DTO.csproj", "{AF4D098A-2A40-4FAC-A35A-AAFCFEAB0F6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practitioner.DAL", "Practitioner.DAL\Practitioner.DAL.csproj", "{511B40DE-B761-444F-9BEE-7499082072E7}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AF4D098A-2A40-4FAC-A35A-AAFCFEAB0F6E} = {AF4D098A-2A40-4FAC-A35A-AAFCFEAB0F6E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +30,10 @@ Global
 		{AF4D098A-2A40-4FAC-A35A-AAFCFEAB0F6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF4D098A-2A40-4FAC-A35A-AAFCFEAB0F6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF4D098A-2A40-4FAC-A35A-AAFCFEAB0F6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{511B40DE-B761-444F-9BEE-7499082072E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{511B40DE-B761-444F-9BEE-7499082072E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{511B40DE-B761-444F-9BEE-7499082072E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{511B40DE-B761-444F-9BEE-7499082072E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

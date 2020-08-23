@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Practitioner.Models;
+//using Practitioner.Models;
+using PractitionerDAL.Interfaces;
 using PractitionerDTO;
 
 namespace Practitioner.Controllers

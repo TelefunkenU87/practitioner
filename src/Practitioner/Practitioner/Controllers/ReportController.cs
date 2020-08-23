@@ -4,17 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Practitioner.Models;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json.Linq;
+//using Practitioner.Models;
 using Practitioner.ViewModel;
 using System.Text;
-using Microsoft.AspNetCore.Razor.Language;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using OfficeOpenXml;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using PractitionerDAL.Interfaces;
 using PractitionerDTO;
 
 namespace Practitioner.Controllers
@@ -114,7 +111,7 @@ namespace Practitioner.Controllers
             return RedirectToAction("Index");
         }
 
-        public string Export(List<RptInterestInRelo> report)
+        public string Export(List<RptInterestInReloDTO> report)
         {
             string sWebRootFolder = _webHostEnvironment.WebRootPath;
             string sFileName = @"demo.xlsx";

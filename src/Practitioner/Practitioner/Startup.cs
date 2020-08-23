@@ -8,7 +8,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Practitioner.Models;
+//using Practitioner.Models;
+using PractitionerDAL.Interfaces;
+using PractitionerDAL.Models;
 using Newtonsoft;
 
 namespace Practitioner

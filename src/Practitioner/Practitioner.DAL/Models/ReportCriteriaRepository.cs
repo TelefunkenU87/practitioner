@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -8,8 +7,9 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using PractitionerDTO;
+using PractitionerDAL.Interfaces;
 
-namespace Practitioner.Models
+namespace PractitionerDAL.Models
 {
     public class ReportCriteriaRepository : IReportCriteriaRepository
     {
@@ -64,15 +64,15 @@ namespace Practitioner.Models
             return categories;
         }
 
-        public List<BaseReportCriteriaFields> GetBaseReportCriteriaFields(string category)
+        public List<BaseReportCriteriaFieldsDTO> GetBaseReportCriteriaFields(string category)
         {
             var procedure = $"SELECT BaseReportCriteria.BaseReportCriteriaId, BaseReportCriteria.FriendlyField FROM dbo.BaseReportCriteria WHERE BaseReportCriteria.Category = '{category}'";
             var parameters = "";
-            var baseReportCriteriaFields = new List<BaseReportCriteriaFields>();
+            var baseReportCriteriaFields = new List<BaseReportCriteriaFieldsDTO>();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                baseReportCriteriaFields = conn.Query<BaseReportCriteriaFields>(procedure, commandType: CommandType.Text).ToList();
+                baseReportCriteriaFields = conn.Query<BaseReportCriteriaFieldsDTO>(procedure, commandType: CommandType.Text).ToList();
             }
             return baseReportCriteriaFields;
         }
@@ -118,14 +118,14 @@ namespace Practitioner.Models
             return reportCriterias;
         }
 
-        public List<RptInterestInRelo> GetRptInterestInRelo()
+        public List<RptInterestInReloDTO> GetRptInterestInRelo()
         {
             var report = "RptInterestInRelo";
-            var rptInterestInRelo = new List<RptInterestInRelo>();
+            var rptInterestInRelo = new List<RptInterestInReloDTO>();
 
             using(IDbConnection conn = new SqlConnection(_connString))
             {
-                rptInterestInRelo = conn.Query<RptInterestInRelo>(report, commandType: CommandType.StoredProcedure).ToList();
+                rptInterestInRelo = conn.Query<RptInterestInReloDTO>(report, commandType: CommandType.StoredProcedure).ToList();
             }
             return rptInterestInRelo;
         }

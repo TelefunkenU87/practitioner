@@ -1,11 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using PractitionerDTO;
 
-namespace Practitioner.Models
+namespace PractitionerDAL.Interfaces
 {
     public interface IReportCriteriaRepository
     {
@@ -14,9 +13,9 @@ namespace Practitioner.Models
         ReportCriteriaDTO GetReportCriteriaById(int reportCriteriaId);
         List<ReportCriteriaDTO> GetReportCriterias();
         ReportCriteriaDTO UpdateReportCriteria(ReportCriteriaDTO updatedReportCriteria);
-        List<RptInterestInRelo> GetRptInterestInRelo();
+        List<RptInterestInReloDTO> GetRptInterestInRelo();
         List<string> GetBaseReportCriteriaCategory();
-        List<BaseReportCriteriaFields> GetBaseReportCriteriaFields(string category);
+        List<BaseReportCriteriaFieldsDTO> GetBaseReportCriteriaFields(string category);
         List<string> GetBaseReportCriteriaFieldValues(int Id);
     }
 }

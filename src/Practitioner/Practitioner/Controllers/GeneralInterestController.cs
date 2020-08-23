@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Practitioner.Models;
 using Practitioner.ViewModel;
+using PractitionerDAL.Interfaces;
 using PractitionerDTO;
 
 namespace Practitioner.Controllers

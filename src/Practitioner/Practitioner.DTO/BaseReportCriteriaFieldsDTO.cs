@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Practitioner.Models
+namespace PractitionerDTO
 {
-    public class BaseReportCriteriaFields
+    public class BaseReportCriteriaFieldsDTO
     {
         public int BaseReportCriteriaId { get; set; }
         public string FriendlyField { get; set; }
