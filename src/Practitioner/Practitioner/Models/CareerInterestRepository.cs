@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
@@ -19,7 +20,7 @@ namespace Practitioner.Models
             _config = config;
             _connString = _config.GetConnectionString("DefaultConnection");
         }
-        public CareerInterest AddCareerInterest(CareerInterest addCareerInterest)
+        public CareerInterestDTO AddCareerInterest(CareerInterestDTO addCareerInterest)
         {
             var procedure = "spAddCareerInterest";
             var parameters = new
@@ -53,33 +54,33 @@ namespace Practitioner.Models
             return executedRows;
         }
 
-        public List<CareerInterest> GetCareerInterestByEmployeeId(int employeeId)
+        public List<CareerInterestDTO> GetCareerInterestByEmployeeId(int employeeId)
         {
             var procedure = "spGetCareerInterestByEmployeeId";
             var parameter = new { @EmployeeId = employeeId };
-            var careerInterests = new List<CareerInterest>();
+            var careerInterests = new List<CareerInterestDTO>();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                careerInterests = conn.Query<CareerInterest>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
+                careerInterests = conn.Query<CareerInterestDTO>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
             }
             return careerInterests;
         }
 
-        public CareerInterest GetCareerInterestById(int careerInterestId)
+        public CareerInterestDTO GetCareerInterestById(int careerInterestId)
         {
             var procedure = "spGetCareerInterestById";
             var parameter = new { @CareerInterestId = careerInterestId };
-            var careerInterest = new CareerInterest();
+            var careerInterest = new CareerInterestDTO();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                careerInterest = conn.QueryFirstOrDefault<CareerInterest>(procedure, parameter, commandType: CommandType.StoredProcedure);
+                careerInterest = conn.QueryFirstOrDefault<CareerInterestDTO>(procedure, parameter, commandType: CommandType.StoredProcedure);
             }
             return careerInterest;
         }
 
-        public CareerInterest UpdateCareerInterest(CareerInterest updatedCareerInterest)
+        public CareerInterestDTO UpdateCareerInterest(CareerInterestDTO updatedCareerInterest)
         {
             var procedure = "spUpdateCareerInterest";
             var parameters = new

@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
@@ -19,7 +20,7 @@ namespace Practitioner.Models
             _connString = _config.GetConnectionString("DefaultConnection");
         }
 
-        public PracticeManagement AddPracticeManagement(PracticeManagement addPracticeManagement)
+        public PracticeManagementDTO AddPracticeManagement(PracticeManagementDTO addPracticeManagement)
         {
             var procedure = "spAddPracticeManagement";
             var parameters = new
@@ -55,33 +56,33 @@ namespace Practitioner.Models
             return executedRows;
         }
 
-        public List<PracticeManagement> GetPracticeManagementByEmployeeId(int employeeId)
+        public List<PracticeManagementDTO> GetPracticeManagementByEmployeeId(int employeeId)
         {
             var procedure = "spGetPracticeManagementByEmployeeId";
             var parameter = new { @EmployeeId = employeeId };
-            var practiceManagements = new List<PracticeManagement>();
+            var practiceManagements = new List<PracticeManagementDTO>();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                practiceManagements = conn.Query<PracticeManagement>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
+                practiceManagements = conn.Query<PracticeManagementDTO>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
             }
             return practiceManagements;
         }
 
-        public PracticeManagement GetPracticeManagementById(int practiceManagementId)
+        public PracticeManagementDTO GetPracticeManagementById(int practiceManagementId)
         {
             var procedure = "spGetPracticeManagementById";
             var parameter = new { @PracticeManagementId = practiceManagementId };
-            var practiceManagement = new PracticeManagement();
+            var practiceManagement = new PracticeManagementDTO();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                practiceManagement = conn.QueryFirstOrDefault<PracticeManagement>(procedure, parameter, commandType: CommandType.StoredProcedure);
+                practiceManagement = conn.QueryFirstOrDefault<PracticeManagementDTO>(procedure, parameter, commandType: CommandType.StoredProcedure);
             }
             return practiceManagement;
         }
 
-        public PracticeManagement UpdatePracticeManagement(PracticeManagement updatedPracticeManagement)
+        public PracticeManagementDTO UpdatePracticeManagement(PracticeManagementDTO updatedPracticeManagement)
         {
             var procedure = "spUpdatePracticeManagement";
             var parameters = new

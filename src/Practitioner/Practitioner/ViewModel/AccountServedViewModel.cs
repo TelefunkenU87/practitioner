@@ -3,15 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.ViewModel
 {
     public class AccountServedViewModel
     {
-        public List<AccountServed> AccountsServed { get; set; }
-        public Employee Employee { get; set; }
+        public List<AccountServedDTO> AccountsServed { get; set; }
+        public EmployeeDTO Employee { get; set; }
         public CategoryNavViewModel CategoryNav { get; set; }
         public ExperienceTabNavViewModel ExperienceTabNav { get; set; }
-        public AccountServed NewAccountServed { get; set; }
+        public AccountServedDTO NewAccountServed { get; set; }
     }
 }

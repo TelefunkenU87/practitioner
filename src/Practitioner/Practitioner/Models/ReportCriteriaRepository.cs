@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
@@ -20,7 +21,7 @@ namespace Practitioner.Models
             _connString = _config.GetConnectionString("DefaultConnection");
         }
 
-        public ReportCriteria AddReportCriteria(int BaseReportCriteriaId, ReportCriteria addReportCriteria)
+        public ReportCriteriaDTO AddReportCriteria(int BaseReportCriteriaId, ReportCriteriaDTO addReportCriteria)
         {
             var procedure = "spAddReportCriteria";
             var parameters = new
@@ -92,27 +93,27 @@ namespace Practitioner.Models
             return results;
         }
 
-        public ReportCriteria GetReportCriteriaById(int reportCriteriaId)
+        public ReportCriteriaDTO GetReportCriteriaById(int reportCriteriaId)
         {
             var procedure = "spGetReportCriteriaById";
             var parameters = new { @ReportCriteriaId = reportCriteriaId };
-            var reportCriteria = new ReportCriteria();
+            var reportCriteria = new ReportCriteriaDTO();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                reportCriteria = conn.QueryFirstOrDefault<ReportCriteria>(procedure, parameters, commandType: CommandType.StoredProcedure);
+                reportCriteria = conn.QueryFirstOrDefault<ReportCriteriaDTO>(procedure, parameters, commandType: CommandType.StoredProcedure);
             }
             return reportCriteria;
         }
 
-        public List<ReportCriteria> GetReportCriterias()
+        public List<ReportCriteriaDTO> GetReportCriterias()
         {
             var procedure = "spGetReportCriterias";
-            var reportCriterias = new List<ReportCriteria>();
+            var reportCriterias = new List<ReportCriteriaDTO>();
 
             using(IDbConnection conn = new SqlConnection(_connString))
             {
-                reportCriterias = conn.Query<ReportCriteria>(procedure).ToList();
+                reportCriterias = conn.Query<ReportCriteriaDTO>(procedure).ToList();
             }
             return reportCriterias;
         }
@@ -129,7 +130,7 @@ namespace Practitioner.Models
             return rptInterestInRelo;
         }
 
-        public ReportCriteria UpdateReportCriteria(ReportCriteria updatedReportCriteria)
+        public ReportCriteriaDTO UpdateReportCriteria(ReportCriteriaDTO updatedReportCriteria)
         {
             var procedure = "spUpdateReportCriteria";
             var parameters = new

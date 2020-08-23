@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
@@ -19,7 +20,7 @@ namespace Practitioner.Models
             _connString = _config.GetConnectionString("DefaultConnection");
         }
 
-        public GeneralInterest AddGeneralInterest(GeneralInterest addGeneralInterest)
+        public GeneralInterestDTO AddGeneralInterest(GeneralInterestDTO addGeneralInterest)
         {
             var procedure = "spAddGeneralInterest";
             var parameters = new
@@ -49,33 +50,33 @@ namespace Practitioner.Models
             return executedRows;
         }
 
-        public List<GeneralInterest> GetGeneralInterestByEmployeeId(int employeeId)
+        public List<GeneralInterestDTO> GetGeneralInterestByEmployeeId(int employeeId)
         {
             var procedure = "spGetGeneralInterestByEmployeeId";
             var parameter = new { @EmployeeId = employeeId };
-            var generalInterests = new List<GeneralInterest>();
+            var generalInterests = new List<GeneralInterestDTO>();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                generalInterests = conn.Query<GeneralInterest>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
+                generalInterests = conn.Query<GeneralInterestDTO>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
             }
             return generalInterests;
         }
 
-        public GeneralInterest GetGeneralInterestById(int generalInterestId)
+        public GeneralInterestDTO GetGeneralInterestById(int generalInterestId)
         {
             var procedure = "spGetGeneralInterestById";
             var parameter = new { @GeneralInterestId = generalInterestId };
-            var generalInterest = new GeneralInterest();
+            var generalInterest = new GeneralInterestDTO();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                generalInterest = conn.QueryFirstOrDefault<GeneralInterest>(procedure, parameter, commandType: CommandType.StoredProcedure);
+                generalInterest = conn.QueryFirstOrDefault<GeneralInterestDTO>(procedure, parameter, commandType: CommandType.StoredProcedure);
             }
             return generalInterest;
         }
 
-        public GeneralInterest UpdateGeneralInterest(GeneralInterest updatedGeneralInterest)
+        public GeneralInterestDTO UpdateGeneralInterest(GeneralInterestDTO updatedGeneralInterest)
         {
             var procedure = "spUpdateGeneralInterest";
             var parameters = new

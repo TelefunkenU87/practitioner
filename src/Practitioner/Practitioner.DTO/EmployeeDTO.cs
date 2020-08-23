@@ -4,9 +4,9 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Practitioner.Models
+namespace PractitionerDTO
 {
-    public class Employee
+    public class EmployeeDTO
     {
         public int EmployeeId { get; set; }
         public string Email { get; set; }

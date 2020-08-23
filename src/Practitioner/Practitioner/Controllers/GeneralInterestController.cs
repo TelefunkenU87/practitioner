@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Practitioner.Models;
 using Practitioner.ViewModel;
+using PractitionerDTO;
 
 namespace Practitioner.Controllers
 {
@@ -32,7 +33,7 @@ namespace Practitioner.Controllers
                 Employee = employee,
                 CategoryNav = categoryNav,
                 InterestTabNav = interestTabNav,
-                NewGeneralInterest = new GeneralInterest { GeneralInterestId = 0, EmployeeId = employee.EmployeeId }
+                NewGeneralInterest = new GeneralInterestDTO { GeneralInterestId = 0, EmployeeId = employee.EmployeeId }
             });
         }
 
@@ -43,7 +44,7 @@ namespace Practitioner.Controllers
         }
 
         [HttpPost]
-        public IActionResult GeneralInterestEdit(GeneralInterest updatedGeneralInterest)
+        public IActionResult GeneralInterestEdit(GeneralInterestDTO updatedGeneralInterest)
         {
             int Id = 0;
             if (updatedGeneralInterest.GeneralInterestId > 0)

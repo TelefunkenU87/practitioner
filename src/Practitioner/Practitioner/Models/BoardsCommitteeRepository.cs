@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
@@ -20,7 +21,7 @@ namespace Practitioner.Models
             _connString = _config.GetConnectionString("DefaultConnection");
         }
 
-        public BoardsCommittees AddBoardsCommittees(BoardsCommittees addBoardsCommittees)
+        public BoardsCommitteesDTO AddBoardsCommittees(BoardsCommitteesDTO addBoardsCommittees)
         {
             var procedure = "spAddBoardsCommittees";
             var parameters = new
@@ -52,33 +53,33 @@ namespace Practitioner.Models
             return executedRows;
         }
 
-        public List<BoardsCommittees> GetBoardsCommitteesByEmployeeId(int employeeId)
+        public List<BoardsCommitteesDTO> GetBoardsCommitteesByEmployeeId(int employeeId)
         {
             var procedure = "spGetBoardsCommitteesByEmployeeId";
             var parameter = new { @EmployeeId = employeeId };
-            var boardsCommittees = new List<BoardsCommittees>();
+            var boardsCommittees = new List<BoardsCommitteesDTO>();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                boardsCommittees = conn.Query<BoardsCommittees>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
+                boardsCommittees = conn.Query<BoardsCommitteesDTO>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
             }
             return boardsCommittees;
         }
 
-        public BoardsCommittees GetBoardsCommitteesById(int boardsCommitteesId)
+        public BoardsCommitteesDTO GetBoardsCommitteesById(int boardsCommitteesId)
         {
             var procedure = "spGetBoardsCommitteesById";
             var parameter = new { @BoardsCommitteesId = boardsCommitteesId };
-            var boardsCommittees = new BoardsCommittees();
+            var boardsCommittees = new BoardsCommitteesDTO();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                boardsCommittees = conn.QueryFirstOrDefault<BoardsCommittees>(procedure, parameter, commandType: CommandType.StoredProcedure);
+                boardsCommittees = conn.QueryFirstOrDefault<BoardsCommitteesDTO>(procedure, parameter, commandType: CommandType.StoredProcedure);
             }
             return boardsCommittees;
         }
 
-        public BoardsCommittees UpdateBoardCommittees(BoardsCommittees UpdatedBoardsCommittees)
+        public BoardsCommitteesDTO UpdateBoardCommittees(BoardsCommitteesDTO UpdatedBoardsCommittees)
         {
             var procedure = "spUpdateBoardCommittees";
             var parameters = new

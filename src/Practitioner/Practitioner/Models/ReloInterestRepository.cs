@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
@@ -18,9 +19,9 @@ namespace Practitioner.Models
             _config = config;
             _connString = _config.GetConnectionString("DefaultConnection");
         }
-        public ReloInterest AddReloInterest(ReloInterest addReloInterest)
+        public ReloInterestDTO AddReloInterest(ReloInterestDTO addReloInterest)
         {
-            var procedure = "spAddReloInterest";
+            var procedure = "spaddReloInterest";
             var parameters = new
             {
                 @EmployeeId = addReloInterest.EmployeeId,
@@ -50,33 +51,33 @@ namespace Practitioner.Models
             return executedRows;
         }
 
-        public List<ReloInterest> GetReloInterestByEmployeeId(int employeeId)
+        public List<ReloInterestDTO> GetReloInterestByEmployeeId(int employeeId)
         {
             var procedure = "spGetReloInterestByEmployeeId";
             var parameter = new { @EmployeeId = employeeId };
-            var reloInterests = new List<ReloInterest>();
+            var reloInterestsDTO = new List<ReloInterestDTO>();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                reloInterests = conn.Query<ReloInterest>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
+                reloInterestsDTO = conn.Query<ReloInterestDTO>(procedure, parameter, commandType: CommandType.StoredProcedure).ToList();
             }
-            return reloInterests;
+            return reloInterestsDTO;
         }
 
-        public ReloInterest GetReloInterestById(int reloInterestId)
+        public ReloInterestDTO GetReloInterestById(int reloInterestId)
         {
             var procedure = "spGetReloInterestById";
             var parameter = new { @ReloInterestId = reloInterestId };
-            var reloInterest = new ReloInterest();
+            var reloInterestDTO = new ReloInterestDTO();
 
             using (IDbConnection conn = new SqlConnection(_connString))
             {
-                reloInterest = conn.QueryFirstOrDefault<ReloInterest>(procedure, parameter, commandType: CommandType.StoredProcedure);
+                reloInterestDTO = conn.QueryFirstOrDefault<ReloInterestDTO>(procedure, parameter, commandType: CommandType.StoredProcedure);
             }
-            return reloInterest;
+            return reloInterestDTO;
         }
 
-        public ReloInterest UpdateReloInterest(ReloInterest updatedReloInterest)
+        public ReloInterestDTO UpdateReloInterest(ReloInterestDTO updatedReloInterest)
         {
             var procedure = "spUpdateReloInterest";
             var parameters = new

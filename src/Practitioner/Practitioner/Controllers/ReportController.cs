@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.Hosting;
 using System.IO;
 using OfficeOpenXml;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using PractitionerDTO;
 
 namespace Practitioner.Controllers
 {
@@ -50,7 +51,7 @@ namespace Practitioner.Controllers
             };
             return View(new ReportCriteriaViewModel
             {
-                ReportCriteria = new ReportCriteria(),
+                ReportCriteria = new ReportCriteriaDTO(),
                 BaseReportCriteriaId = 0,
                 Category = categories,
                 Fields = fields,

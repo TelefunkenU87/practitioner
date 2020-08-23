@@ -3,15 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
     public interface IGeneralInterestRepository
     {
-        GeneralInterest AddGeneralInterest(GeneralInterest addGeneralInterest);
+        GeneralInterestDTO AddGeneralInterest(GeneralInterestDTO addGeneralInterest);
         int DeleteGeneralInterest(int generalInterestId);
-        List<GeneralInterest> GetGeneralInterestByEmployeeId(int employeeId);
-        GeneralInterest GetGeneralInterestById(int generalInterestId);
-        GeneralInterest UpdateGeneralInterest(GeneralInterest updatedGeneralInterest);
+        List<GeneralInterestDTO> GetGeneralInterestByEmployeeId(int employeeId);
+        GeneralInterestDTO GetGeneralInterestById(int generalInterestId);
+        GeneralInterestDTO UpdateGeneralInterest(GeneralInterestDTO updatedGeneralInterest);
     }
 }

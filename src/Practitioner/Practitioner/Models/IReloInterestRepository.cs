@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PractitionerDTO;
 
 namespace Practitioner.Models
 {
     public interface IReloInterestRepository
     {
-        ReloInterest AddReloInterest(ReloInterest addReloInterest);
+        ReloInterestDTO AddReloInterest(ReloInterestDTO addReloInterest);
         int DeleteReloInterest(int reloInterestId);
-        List<ReloInterest> GetReloInterestByEmployeeId(int employeeId);
-        ReloInterest GetReloInterestById(int reloInterestId);
-        ReloInterest UpdateReloInterest(ReloInterest updatedReloInterest);
+        List<ReloInterestDTO> GetReloInterestByEmployeeId(int employeeId);
+        ReloInterestDTO GetReloInterestById(int reloInterestId);
+        ReloInterestDTO UpdateReloInterest(ReloInterestDTO updatedReloInterest);
     }
 }
